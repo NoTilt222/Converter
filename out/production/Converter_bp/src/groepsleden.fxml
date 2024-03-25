@@ -9,9 +9,12 @@
 <?import javafx.scene.text.Text?>
 
 <?import javafx.scene.shape.Circle?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.GroepsledenController" style="-fx-background-color: #000000;">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.GroepsledenController" style="-fx-background-color: #000000;">
    <children>
-
-
+      <Text layoutX="10.0" layoutY="35.0" fx:id="text" strokeType="OUTSIDE" strokeWidth="0.0"  style="-fx-background-color: #ffffff; -fx-font-weight: bold;" fill="WHITE" wrappingWidth="400.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

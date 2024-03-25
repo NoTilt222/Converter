@@ -1,24 +1,22 @@
 package src;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.stage.Modality;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
-
-import java.awt.*;
-import java.io.IOException;
 
 public class HelpModalController {
     @FXML
-    private Text helpLabel;
+    private Text helpText;
 
     public void initialize() {
-        helpLabel.setText("Klik op de 'Clear' knop om de tekstvelden te legen. Klik op de 'Groepsleden' knop om de namen van de " +
-                "groepsleden te zien");
+        helpText.setText(explain());
     }
+
+    String explain() {
+        return """
+                1. Vul in het tekstveld een woord of tekst in.
+                2. Klik op de knop 'Convert' om de tekst om te zetten naar morse code.
+                3. Wilt u de tekstvelden legen? Klik dan op de knop 'Clear'.
+                4. Wilt u de namen van de groepsleden zien? Klik dan op de knop 'Groepsleden'.""";
+    }
+
 }

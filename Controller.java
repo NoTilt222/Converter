@@ -28,17 +28,20 @@ public class Controller {
         // Load your icon image
         Image icon = new Image(getClass().getResourceAsStream("cycle.png"));
         Image question = new Image(getClass().getResourceAsStream("question.png"));
+
         // Create an ImageView with the icon
         ImageView iconView = new ImageView(icon);
-        ImageView iconView2 = new ImageView(question);
+        ImageView questionView = new ImageView(question);
+
         // Set the size of the ImageView
         iconView.setFitWidth(32);
         iconView.setFitHeight(32);
-        iconView2.setFitWidth(32);
-        iconView2.setFitHeight(32);
-        // Set the graphic of the switchButton
+        questionView.setFitWidth(32);
+        questionView.setFitHeight(32);
+
+        // Set the graphic of the switchButton & helpButton
         switchButton.setGraphic(iconView);
-        helpButton.setGraphic(iconView2);
+        helpButton.setGraphic(questionView);
     }
 
     @FXML
@@ -68,24 +71,23 @@ public class Controller {
     }
 
     @FXML
-    void Groepsleden(ActionEvent event){
+    void showGroepsledenModal(ActionEvent event){
         try {
-            // Load the help modal FXML file
+            // Load the modal FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("groepsleden.fxml"));
             Parent root = loader.load();
 
-            // Create a new stage for the help modal
+            // Create a new stage for the modal
             Stage groepStage = new Stage();
             groepStage.initModality(Modality.APPLICATION_MODAL);
             groepStage.setTitle("Groepsleden");
             groepStage.setScene(new Scene(root));
 
-            // Show the help modal
+            // Show the modal
             groepStage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }
-       // return new String[]{"Timothy Mentowidjojo", "Josh Kartadiwirja", "Shyfka Landveld", "Tarique Martowidjojo", "Yorina Lodirono"};
     }
 
     @FXML
