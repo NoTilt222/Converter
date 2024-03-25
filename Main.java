@@ -17,6 +17,7 @@ public class Main extends Application {
         primaryStage.setTitle("Converter");
         // Set the scene with the root node loaded from FXML
         primaryStage.setScene(new Scene(root));
+
         // Display the primary stage
         primaryStage.show();
     }
