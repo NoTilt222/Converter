@@ -1,0 +1,10 @@
+.choice-box .context-menu {
+    -fx-min-width: 200;
+    -fx-pref-width: 200;
+    -fx-max-width: 200;
+    -fx-background-color: #FFFFFF; /* Background color */
+}
+
+.choice-box .menu-item {
+    -fx-text-fill: #000000; /* Text color */
+}

@@ -10,11 +10,20 @@ public class Main extends Application {
 
     // Entry point of the application
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         // Load the FXML file
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("converterType.fxml"));
+        Parent root = loader.load();
+
+        // Get the controller instance
+        ConverterTypeController controller = loader.getController();
+
+        // Set the stage for the controller to manage
+        controller.setStage(primaryStage);
+
         // Set the title of the primary stage
-        primaryStage.setTitle("Converter");
+        primaryStage.setTitle("Choose Converter");
+
         // Set the scene with the root node loaded from FXML
         primaryStage.setScene(new Scene(root));
 

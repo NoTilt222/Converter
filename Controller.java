@@ -67,7 +67,11 @@ public class Controller {
     // Method to switch between Morse to text translation and vice versa
     @FXML
     void switchStyle(ActionEvent event) {
+        String text = textInput.getText();
+        String morse = morseOutput.getText();
         morseToText = !morseToText;
+        morseOutput.setText(text);
+        textInput.setText(morse);
     }
 
     @FXML
