@@ -11,8 +11,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-import java.io.IOException;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.SourceDataLine;
 
 public class Controller {
 
@@ -81,27 +82,7 @@ public class Controller {
     }
 
     @FXML
-    void showGroepsledenModal(ActionEvent event){
-        try {
-            // Load the modal FXML file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("groepsleden.fxml"));
-            Parent root = loader.load();
-
-            // Create a new stage for the modal
-            Stage groepStage = new Stage();
-            groepStage.initModality(Modality.APPLICATION_MODAL);
-            groepStage.setTitle("Groepsleden");
-            groepStage.setScene(new Scene(root));
-
-            // Show the modal
-            groepStage.showAndWait();
-        } catch (IOException e) {
-            System.err.println("Error: " + e);
-        }
-    }
-
-    @FXML
-    void Clear(){
+    public void Clear(){
         textInput.clear();
         morseOutput.clear();
     }
@@ -121,7 +102,7 @@ public class Controller {
 
             // Show the help modal
             helpStage.showAndWait();
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.err.println("Error: " + e);
         }
     }
@@ -140,9 +121,36 @@ public class Controller {
 
             // Replace the current scene with the converter type scene
             stage.setScene(new Scene(root));
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.err.println("Error: " + e);
         }
     }
+
+    @FXML
+    void playMorseSound(ActionEvent event) {
+        try {
+            String morse = textInput.getText();
+            final int DOT = 200, DASH = DOT * 3, FREQ = 800;
+            for (char c : morse.toUpperCase().toCharArray()) {
+                for (char note : (Character.isLetterOrDigit(c) ?
+                        (Character.isLetter(c) ? morseCodeTranslator.morse[Character.toUpperCase(c) - 'A'].toCharArray() : morseCodeTranslator.morse[c - '0' + 26].toCharArray()) :
+                        new char[]{'\n'})) {
+                    System.out.print(note == ' ' ? "\n" : note);
+                    try (SourceDataLine sdl = AudioSystem.getSourceDataLine(new AudioFormat(8000F, 8, 1, true, false))) {
+                        sdl.open(sdl.getFormat());
+                        sdl.start();
+                        for (int i = 0; i < (note == '.' ? DOT : DASH) * 8; i++) {
+                            sdl.write(new byte[]{(byte) (Math.sin(i / (8000F / FREQ) * 2.0 * Math.PI) * 127.0)}, 0, 1);
+                        }
+                        sdl.drain();
+                    }
+                    Thread.sleep(DOT / 5);
+                }
+            }
+        } catch (Exception e){
+            System.err.println("Error: " + e);
+        }
+    }
+
 
 }

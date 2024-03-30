@@ -22,7 +22,7 @@ public class GroepsledenController {
         text.setText(groepsledenText.toString());
     }
 
-    String[] Groepsleden(){
+    public String[] Groepsleden(){
         return new String[]{"Timothy Mentowidjojo", "Josh Kartadiwirja", "Shyfka Landveld", "Tarique Martowidjojo", "Yorina Lodirono"};
     }
 }

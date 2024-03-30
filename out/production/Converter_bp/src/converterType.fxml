@@ -16,8 +16,9 @@
         </Text>
         <ChoiceBox fx:id="converterType" layoutX="210" layoutY="150" prefWidth="200" />
         <Button layoutX="260.0" layoutY="200.0" mnemonicParsing="false" prefHeight="50" prefWidth="100" onAction="#loadConverter" text="Load Coverter" style="-fx-background-color: #FFD700; -fx-font-weight: bold;" />
+        <Button layoutX="310.0" layoutY="400.0" mnemonicParsing="false" prefHeight="50" prefWidth="100" onAction="#showGroepsledenModal" text="Groepsleden" style="-fx-background-color: #FFD700; -fx-font-weight: bold;" />
     </children>
     <stylesheets>
-        <URL value="@styles.css" />
+        <URL value="@CSS/styles.css" />
     </stylesheets>
 </AnchorPane>

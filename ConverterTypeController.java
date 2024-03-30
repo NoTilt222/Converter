@@ -1,10 +1,12 @@
 package src;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -55,6 +57,26 @@ public class ConverterTypeController {
             stage.show();
         } catch (Exception e) {
             System.err.println("Error loading Image to Base64 view: " + e);
+        }
+    }
+
+    @FXML
+    void showGroepsledenModal(ActionEvent event){
+        try {
+            // Load the modal FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("groepsleden.fxml"));
+            Parent root = loader.load();
+
+            // Create a new stage for the modal
+            Stage groepStage = new Stage();
+            groepStage.initModality(Modality.APPLICATION_MODAL);
+            groepStage.setTitle("Groepsleden");
+            groepStage.setScene(new Scene(root));
+
+            // Show the modal
+            groepStage.showAndWait();
+        } catch (Exception e) {
+            System.err.println("Error: " + e);
         }
     }
 
