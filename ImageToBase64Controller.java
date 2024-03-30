@@ -1,9 +1,15 @@
 package src;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -21,9 +27,23 @@ public class ImageToBase64Controller {
 
     private FileChooser fileChooser;
     private String base64String;
+    @FXML
+    private Button backButton;
 
     @FXML
     private void initialize() {
+        Image backIcon = new Image(getClass().getResourceAsStream("Pictures/back-button.png"));
+
+        // Create an ImageView with the icon
+        ImageView backView = new ImageView(backIcon);
+
+        // Set the size of the ImageView
+        backView.setFitWidth(32);
+        backView.setFitHeight(32);
+
+        // Set the graphic of the switchButton & helpButton
+        backButton.setGraphic(backView);
+
         fileChooser = new FileChooser();
         fileChooser.setTitle("Select Image File");
         base64String = null;
@@ -42,7 +62,7 @@ public class ImageToBase64Controller {
                 inputStream.close();
                 uploadButton.setText("Image uploaded✔ "); // Update button text
             } catch (IOException e) {
-                e.printStackTrace(); // Handle or log the exception as needed
+                System.err.println("Error: " + e); // Handle or log the exception as needed
             }
         }
     }
@@ -57,4 +77,24 @@ public class ImageToBase64Controller {
     private void convertToBase64() {
         base64TextArea.setText(base64String);
     }
+
+    @FXML
+    private void GoBack() {
+        try {
+            // Load the converter type FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("converterType.fxml"));
+            Parent root = loader.load();
+            ConverterTypeController controller = loader.getController();
+
+            // Get the stage of the current scene
+            Stage stage = (Stage) base64TextArea.getScene().getWindow();
+            controller.setStage(stage);
+
+            // Replace the current scene with the converter type scene
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            System.err.println("Error: " + e);
+        }
+    }
+
 }

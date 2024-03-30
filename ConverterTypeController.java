@@ -28,29 +28,34 @@ public class ConverterTypeController {
     private void loadConverter() {
         String selectedConverter = converterType.getSelectionModel().getSelectedItem();
         if (selectedConverter != null) {
-            try {
-                if (selectedConverter.equals("Morse")) {
-                    loadMorseView();
-                } else if (selectedConverter.equals("Image to Base64")) {
-                    loadImageToBase64View();
-                }
-            } catch (IOException e) {
-                e.printStackTrace(); // Handle or log the exception as needed
+            if (selectedConverter.equals("Morse")) {
+                loadMorseView();
+            } else if (selectedConverter.equals("Image to Base64")) {
+                loadImageToBase64View();
             }
         }
     }
 
-    private void loadMorseView() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("morseView.fxml"));
-        stage.setTitle("Morse Converter");
-        stage.setScene(new Scene(root));
-        stage.show();
+    private void loadMorseView() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("morseView.fxml"));
+            stage.setTitle("Morse Converter");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            System.err.println("Error loading Morse view: " + e);
+        }
     }
 
-    private void loadImageToBase64View() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("imageToBase64View.fxml"));
-        stage.setTitle("Image to Base64 Converter");
-        stage.setScene(new Scene(root));
-        stage.show();
+    private void loadImageToBase64View() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("imageToBase64View.fxml"));
+            stage.setTitle("Image to Base64 Converter");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            System.err.println("Error loading Image to Base64 view: " + e);
+        }
     }
+
 }

@@ -20,27 +20,33 @@ public class Controller {
     private Button switchButton;
     @FXML
     private Button helpButton;
-
+    @FXML
+    private Button backButton;
 
     // Initialize method called after FXML loading
     @FXML
     public void initialize() {
         // Load your icon image
-        Image icon = new Image(getClass().getResourceAsStream("cycle.png"));
-        Image question = new Image(getClass().getResourceAsStream("question.png"));
+        Image icon = new Image(getClass().getResourceAsStream("Pictures/cycle.png"));
+        Image question = new Image(getClass().getResourceAsStream("Pictures/question.png"));
+        Image backIcon = new Image(getClass().getResourceAsStream("Pictures/back-button.png"));
 
         // Create an ImageView with the icon
         ImageView iconView = new ImageView(icon);
         ImageView questionView = new ImageView(question);
+        ImageView backView = new ImageView(backIcon);
 
         // Set the size of the ImageView
         iconView.setFitWidth(32);
         iconView.setFitHeight(32);
+        backView.setFitWidth(32);
+        backView.setFitHeight(32);
         questionView.setFitWidth(32);
         questionView.setFitHeight(32);
 
         // Set the graphic of the switchButton & helpButton
         switchButton.setGraphic(iconView);
+        backButton.setGraphic(backView);
         helpButton.setGraphic(questionView);
     }
 
@@ -90,7 +96,7 @@ public class Controller {
             // Show the modal
             groepStage.showAndWait();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Error: " + e);
         }
     }
 
@@ -116,7 +122,26 @@ public class Controller {
             // Show the help modal
             helpStage.showAndWait();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Error: " + e);
+        }
+    }
+
+    @FXML
+    private void GoBack() {
+        try {
+            // Load the converter type FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("converterType.fxml"));
+            Parent root = loader.load();
+            ConverterTypeController controller = loader.getController();
+
+            // Get the stage of the current scene
+            Stage stage = (Stage) switchButton.getScene().getWindow();
+            controller.setStage(stage);
+
+            // Replace the current scene with the converter type scene
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            System.err.println("Error: " + e);
         }
     }
 
