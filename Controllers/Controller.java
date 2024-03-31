@@ -25,6 +25,8 @@ public class Controller {
     private Button helpButton;
     @FXML
     private Button backButton;
+    @FXML
+    private Button playSoundButton;
     private Requirements _requirements;
 
     // Initialize method called after FXML loading
@@ -36,12 +38,13 @@ public class Controller {
         Image icon = new Image(getClass().getResourceAsStream("../Pictures/cycle.png"));
         Image question = new Image(getClass().getResourceAsStream("../Pictures/question.png"));
         Image backIcon = new Image(getClass().getResourceAsStream("../Pictures/back-button.png"));
+        Image speakerIcon = new Image(getClass().getResourceAsStream("../Pictures/speaker.png"));
 
         // Create an ImageView with the icon
         ImageView iconView = new ImageView(icon);
         ImageView questionView = new ImageView(question);
         ImageView backView = new ImageView(backIcon);
-
+        ImageView speakerView = new ImageView(speakerIcon);
         // Set the size of the ImageView
         iconView.setFitWidth(32);
         iconView.setFitHeight(32);
@@ -49,11 +52,13 @@ public class Controller {
         backView.setFitHeight(32);
         questionView.setFitWidth(32);
         questionView.setFitHeight(32);
-
+        speakerView.setFitWidth(32);
+        speakerView.setFitHeight(32);
         // Set the graphic of the switchButton & helpButton
         switchButton.setGraphic(iconView);
         backButton.setGraphic(backView);
         helpButton.setGraphic(questionView);
+        playSoundButton.setGraphic(speakerView);
     }
 
     @FXML
