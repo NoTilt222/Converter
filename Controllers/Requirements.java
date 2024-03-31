@@ -13,7 +13,7 @@ public class Requirements implements IRequirements {
     }
 
     public String abs2morse(String text){
-        char[] characters = text.toCharArray();
+        char[] characters = text.toLowerCase().toCharArray();
         StringBuilder morseString = new StringBuilder();
 
         for (char character : characters) {
