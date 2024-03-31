@@ -5,7 +5,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -15,10 +18,25 @@ public class ConverterTypeController {
 
     @FXML
     private ChoiceBox<String> converterType;
+    @FXML
+    private Button groupButton;
     private Stage stage; // Reference to the stage
 
     public void initialize() {
         converterType.getItems().addAll("Morse", "Image to Base64");
+
+        // Load your icon image
+        Image groupIcon = new Image(getClass().getResourceAsStream("../Pictures/group.png"));
+
+        // Create an ImageView with the icon
+        ImageView groupView = new ImageView(groupIcon);
+
+        // Set the size of the ImageView
+        groupView.setFitWidth(32);
+        groupView.setFitHeight(32);
+
+        // Set the graphic of the switchButton & helpButton
+        groupButton.setGraphic(groupView);
     }
 
     // Method to set the stage
