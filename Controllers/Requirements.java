@@ -64,8 +64,8 @@ public class Requirements implements IRequirements {
 
     public String explain(){
         return """
-                Klik op de knop 'Groepsleden' om de namen van de groepsleden te zien.
                 Klik op de knop 'Voorbeelden' om voorbeelden te zien van tekst en morse code die u kunt gebruiken.
+                Klik op de 'Cycle' knop om de waardes van de tekstvelden te swappen.
                 
                 Converteer tekst naar morse:
                 1. Vul in het tekstveld een woord of tekst in.

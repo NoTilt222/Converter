@@ -148,6 +148,10 @@ public class Controller {
     void playMorseSound(ActionEvent event) {
         try {
             String morse = Input.getText();
+            if(!morse.matches(".*[a-z].*")){
+                morse = Output.getText();
+            }
+
             final int DOT = 200, DASH = DOT * 3, FREQ = 800;
             for (char c : morse.toUpperCase().toCharArray()) {
                 for (char note : (Character.isLetterOrDigit(c) ?
