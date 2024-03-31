@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.stage.FileChooser?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controllers.ImageToBase64Controller" style="-fx-background-color: #7F00FF;">
+    <children>
+        <Text layoutX="130.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image to Base64 Converter" style="-fx-background-color: #ffffff; -fx-font-weight: bold;" fill="WHITE">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </Text>
+        <Button fx:id="uploadButton" layoutX="50" layoutY="120" mnemonicParsing="false" text="Upload Image" onAction="#uploadImage" style="-fx-background-color: #FFD700; -fx-font-weight: bold;" />
+        <TextArea fx:id="base64TextArea" layoutX="50" layoutY="170" prefHeight="200" prefWidth="500" />
+        <Button layoutX="190.0" layoutY="400.0"  mnemonicParsing="false" prefHeight="50" prefWidth="100" text="Convert" onAction="#convertToBase64" style="-fx-background-color: #FFD700; -fx-font-weight: bold;"/>
+        <Button layoutX="310.0" layoutY="400.0"  mnemonicParsing="false" prefHeight="50" prefWidth="100" text="Clear" onAction="#Clear" style="-fx-background-color: #FFD700; -fx-font-weight: bold;"/>
+        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30" prefWidth="30" fx:id="backButton" onAction="#GoBack" style="-fx-background-color: #FFD700; -fx-font-weight: bold;" />
+    </children>
+</AnchorPane>
