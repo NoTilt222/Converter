@@ -142,13 +142,12 @@ public class Controller {
     @FXML
     void playMorseSound(ActionEvent event) {
         try {
-            String morse = Output.getText();
+            String morse = Input.getText();
             final int DOT = 200, DASH = DOT * 3, FREQ = 800;
             for (char c : morse.toUpperCase().toCharArray()) {
                 for (char note : (Character.isLetterOrDigit(c) ?
                         (Character.isLetter(c) ? morseCodeTranslator.morse[Character.toUpperCase(c) - 'A'].toCharArray() : morseCodeTranslator.morse[c - '0' + 26].toCharArray()) :
                         new char[]{'\n'})) {
-                    System.out.print(note == ' ' ? "\n" : note);
                     try (SourceDataLine sdl = AudioSystem.getSourceDataLine(new AudioFormat(8000F, 8, 1, true, false))) {
                         sdl.open(sdl.getFormat());
                         sdl.start();
