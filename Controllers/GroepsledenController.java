@@ -1,7 +1,8 @@
-package src;
+package src.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
+import src.Interfaces.IRequirements;
 
 public class GroepsledenController {
 
@@ -10,7 +11,8 @@ public class GroepsledenController {
 
     @FXML
     public void initialize(){
-        String[] groepsleden = Groepsleden();
+        Requirements _requirements = new Requirements();
+        String[] groepsleden = _requirements.groepsleden();
         StringBuilder groepsledenText = new StringBuilder();
 
         groepsledenText.append("De namen van de groepsleden zijn:\n");
@@ -20,9 +22,5 @@ public class GroepsledenController {
         }
 
         text.setText(groepsledenText.toString());
-    }
-
-    String[] Groepsleden(){
-        return new String[]{"Timothy Mentowidjojo", "Josh Kartadiwirja", "Shyfka Landveld", "Tarique Martowidjojo", "Yorina Lodirono"};
     }
 }

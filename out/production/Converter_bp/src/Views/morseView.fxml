@@ -7,15 +7,15 @@
 <?import javafx.scene.text.Text?>
 
 <?import javafx.scene.shape.Circle?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controller" style="-fx-background-color: #7F00FF;">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controllers.Controller" style="-fx-background-color: #7F00FF;">
    <children>
-      <TextArea fx:id="textInput" layoutX="82.0" layoutY="64.0" prefHeight="146.0" prefWidth="437.0" promptText="Enter here...">
+      <TextArea fx:id="Input" layoutX="82.0" layoutY="64.0" prefHeight="146.0" prefWidth="437.0" promptText="Enter here...">
          <font>
             <Font size="24.0" />
          </font>
       </TextArea>
 
-      <TextArea fx:id="morseOutput" editable="true" layoutX="82.0" layoutY="226.0" prefHeight="146.0" prefWidth="437.0" promptText="Result will appear here...">
+      <TextArea fx:id="Output" editable="true" layoutX="82.0" layoutY="226.0" prefHeight="146.0" prefWidth="437.0" promptText="Result will appear here...">
          <font>
             <Font size="24.0" />
          </font>
@@ -26,8 +26,9 @@
          </font>
       </Text>
       <Button layoutX="195.0" layoutY="400.0" mnemonicParsing="false" prefHeight="50" prefWidth="100" onAction="#updateMorseCode" text="Convert" style="-fx-background-color: #FFD700; -fx-font-weight: bold;" />
-      <Button layoutX="422.0" layoutY="400.0" mnemonicParsing="false" prefHeight="50" prefWidth="100" onAction="#updateMorseCode" text="Sound" style="-fx-background-color: #FFD700; -fx-font-weight: bold;" />
-      <Button layoutX="310.0" layoutY="400.0" mnemonicParsing="false" prefHeight="50" prefWidth="100" onAction="#showGroepsledenModal" text="Groepsleden" style="-fx-background-color: #FFD700; -fx-font-weight: bold;" />
+      <Button layoutX="310.0" layoutY="400.0" mnemonicParsing="false" prefHeight="50" prefWidth="100" onAction="#showExampleModal" text="Voorbeelden" style="-fx-background-color: #FFD700; -fx-font-weight: bold;" />
+      <Button layoutX="422.0" layoutY="400.0" mnemonicParsing="false" prefHeight="50" prefWidth="100" onAction="#playMorseSound" text="Sound" style="-fx-background-color: #FFD700; -fx-font-weight: bold;" />
+      <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30" prefWidth="30" fx:id="backButton" onAction="#GoBack" style="-fx-background-color: #FFD700; -fx-font-weight: bold;" />
       <Button layoutX="540.0" layoutY="10.0" fx:id="helpButton" mnemonicParsing="false" prefHeight="30" prefWidth="30" onAction="#showHelpModal" style="-fx-background-color: #FFD700; "/>
       <Button layoutX="82.0" layoutY="400.0"  mnemonicParsing="false" prefHeight="50" prefWidth="100" text="Clear" onAction="#Clear" style="-fx-background-color: #FFD700; -fx-font-weight: bold;"/>
       <Button layoutX="540.0" layoutY="200.0" fx:id="switchButton" mnemonicParsing="false" prefHeight="50" prefWidth="50" onAction="#switchStyle" style="-fx-background-color: #FFD700; ">

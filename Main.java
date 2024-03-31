@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import src.Controllers.ConverterTypeController;
 
 public class Main extends Application {
 
@@ -12,7 +13,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Load the FXML file
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("converterType.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Views/converterType.fxml"));
         Parent root = loader.load();
 
         // Get the controller instance
